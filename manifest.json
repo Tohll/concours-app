@@ -1,0 +1,7 @@
+{
+  "name": "concours-app",
+  "short_name": "concours-app",
+  "description": "halloween Seeders",
+  "start_url": "/",
+  "display": "standalone"
+}

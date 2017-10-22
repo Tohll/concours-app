@@ -1,0 +1,50 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/nuxeo-ui-elements/viewers/nuxeo-image-viewer.html">
+
+<dom-module id="image-selector"> <template>
+<style>
+:host {
+	display: block;
+}
+
+nuxeo-image-viewer {width:500px; height:500px;}
+</style>
+<div>
+	<input id="upload" type='file' on-change="_changed" />
+	<div>
+		<nuxeo-image-viewer id="canevaPerso" src=""></nuxeo-image-viewer>
+	</div>
+</div>
+</template> <script>
+    /**
+     * `image-selector`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ImageSelector extends Polymer.Element {
+      static get is() { return 'image-selector'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'image-selector'
+          }
+        };
+      }
+      _changed(e){
+    	    var caneva = this.$.canevaPerso;
+    		var file = e.target.files[0];
+    		var reader = new FileReader();
+    		reader.addEventListener("load", function () {
+    			caneva.setAttribute("src", reader.result);
+    		}, false);
+     		if (file) {
+     		    reader.readAsDataURL(file);
+     		}
+  	  }
+    }
+    window.customElements.define(ImageSelector.is, ImageSelector);
+  </script> </dom-module>

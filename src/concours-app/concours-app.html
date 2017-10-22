@@ -1,0 +1,35 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/image-selector/image-selector.html">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<dom-module id="concours-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    
+    <image-selector></image-selector>
+    
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class ConcoursApp extends Polymer.Element {
+      static get is() { return 'concours-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'concours-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(ConcoursApp.is, ConcoursApp);
+  </script>
+</dom-module>
