@@ -1,6 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import"
-	href="../../bower_components/nuxeo-ui-elements/viewers/nuxeo-image-viewer.html">
+<link rel="import" href="../../bower_components/nuxeo-ui-elements/viewers/nuxeo-image-viewer.html">
 
 <dom-module id="image-selector"> <template>
 <style>
@@ -65,9 +64,7 @@ nuxeo-image-viewer {
     		var reader = new FileReader();
     		reader.addEventListener("load", function () {
     			caneva.setAttribute("src", reader.result);
-    			if (container.classList.contains("hidden")) {
-    				container.classList.remove("hidden");
-    			}
+    			container.classList.remove("hidden");
     		}, false);
      		if (file) {
      		    reader.readAsDataURL(file);
