@@ -58,11 +58,11 @@ Example:
 
       #toolbar {
         position: absolute;
-        bottom: 16px;
-        width: 150px;
+        bottom: 25px;
+        width: 75px;
         left: calc(50% - 75px);
         color: #fff;
-        z-index: 25;
+        z-index: 201;
         text-align: center;
         padding: 2px;
         border-radius: 4px;
@@ -93,10 +93,8 @@ Example:
       <img id="image" src="[[src]]" on-load="_init">
       <template is="dom-if" if="[[controls]]">
         <div id="toolbar">
-          <paper-icon-button on-tap="_click" icon="zoom-out" data-action="zoom-out"></paper-icon-button>
-          <paper-icon-button on-tap="_click" icon="zoom-in" data-action="zoom-in"></paper-icon-button>
-          <paper-icon-button on-tap="_click" icon="image:rotate-left" data-action="rotate-left"></paper-icon-button>
-          <paper-icon-button on-tap="_click" icon="image:rotate-right" data-action="rotate-right"></paper-icon-button>
+          <paper-icon-button on-tap="_click" src="../../img/icon_minus.png" data-action="zoom-out"></paper-icon-button>
+          <paper-icon-button on-tap="_click" src="../../img/icon_plus.png" data-action="zoom-in"></paper-icon-button>
         </div>
       </template>
     </div>
