@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../../bower_components/nuxeo-ui-elements/viewers/nuxeo-image-viewer.html">
+<link rel="import"
+	href="../../bower_components/nuxeo-ui-elements/viewers/nuxeo-image-viewer.html">
 
 <dom-module id="image-selector"> <template>
 <style>
@@ -7,13 +8,36 @@
 	display: block;
 }
 
-nuxeo-image-viewer {width:499px; height:499px; position:absolute; top:50px; left:50px;}
-#layout {z-index:200; pointer-events: none; background-image:url('../../img/layout-1-theocrates.png'); width:500px; height:500px;position:absolute; top:50px; left:50px; background-size: contain;}
+nuxeo-image-viewer {
+	width: 499px;
+	height: 499px;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+}
+
+#layout {
+	z-index: 200;
+	background-image: url('../../img/layout-1-theocrates.png');
+	width: 500px;
+	height: 500px;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	background-size: contain;
+	pointer-events: none;
+}
+
+.hidden {
+	display:none;
+}
 </style>
 <div>
 	<input id="upload" type='file' on-change="_changed" />
-	<div id="layout"></div>
-	<nuxeo-image-viewer controls id="canevaPerso" src=""></nuxeo-image-viewer>
+	<div id="container" class="hidden">
+		<div id="layout"></div>
+		<nuxeo-image-viewer  controls id="canevaPerso" src=""></nuxeo-image-viewer>
+	</div>
 </div>
 </template> <script>
     /**
@@ -36,10 +60,14 @@ nuxeo-image-viewer {width:499px; height:499px; position:absolute; top:50px; left
       }
       _changed(e){
     	    var caneva = this.$.canevaPerso;
+    	    var container = this.$.container;
     		var file = e.target.files[0];
     		var reader = new FileReader();
     		reader.addEventListener("load", function () {
     			caneva.setAttribute("src", reader.result);
+    			if (container.classList.contains("hidden")) {
+    				container.classList.remove("hidden");
+    			}
     		}, false);
      		if (file) {
      		    reader.readAsDataURL(file);
